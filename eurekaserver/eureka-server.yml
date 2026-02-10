@@ -3,24 +3,23 @@ spring:
     name: eureka-server
   boot:
     admin:
-      contextpath: /admin
+      context-path: /admin              
 server:
   port: 8070
 eureka:
   instance:
-    hostname: eurekaserver
+    hostname: eureka-server           
+    prefer-ip-address: true           
   client:
-    registerwithEureka: false
-    fetchregistry: false
-    serviceUrl:
-      defaultzone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    register-with-eureka: false       
+    fetch-registry: false
+    service-url:                      
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
-    waitTimeInMsWhenSyncEmpty: 5		
-
-
-
+    wait-time-in-ms-when-sync-empty: 5  
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+
